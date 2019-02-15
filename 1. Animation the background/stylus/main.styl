@@ -1,0 +1,130 @@
+@import "_font-face.styl"
+@import "_libs.styl"
+@import "_vars.styl"
+
+// all
+*
+	-webkit-box-sizing border-box
+	-moz-box-sizing border-box
+	box-sizing border-box
+	&:before, &:after
+		-webkit-box-sizing border-box
+		-moz-box-sizing border-box
+		box-sizing border-box
+
+// placeholder
+*::-webkit-input-placeholder,
+*:-moz-placeholder,
+*::-moz-placeholder,
+*:-ms-input-placeholder
+	color #666
+	opacity 1
+
+// input required valid/invalid
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color #666
+body input:required:valid,
+body textarea:required:valid
+	color #666
+
+html, body
+	height 100%
+
+body
+	font-size 16px
+	min-width 320px
+	position relative
+	line-height 1.65
+	font-family $default-font
+	overflow-x hidden
+	height 100vh
+	overflow hidden
+	margin 0
+
+img
+	display block
+	max-width 100%
+	height auto
+
+
+header 
+	display flex
+	align-items center
+	font-size 18px
+	height 100vh
+	justify-content center
+	overflow hidden
+	perspective 100px
+	position relative
+	text-align center
+	transform-style preserve-3d
+	&:before
+		animation fade-slide-down 5s cubic-bezier(0, .5, 0, 1) forwards
+		opacity 0
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .8)),
+		url(../img/header-background.jpg) no-repeat bottom
+		background-size cover
+		content ''
+		position absolute
+		top 0
+		left 0
+		bottom 0
+		right 0
+		z-index -1
+	&:after
+		background-color #f9fcff
+		content ''
+		height 40rem
+		left -5%
+		position absolute
+		right -5%
+		top 90%
+		transform-origin 0 0
+		transform rotateZ(-4deg)
+
+.header-title,
+.header-subtitle
+	color: #fff 
+
+.header-subtitle
+	margin-bottom 5rem
+	text-transform uppercase
+
+.header-button
+	transform translateZ(.1px)
+	position relative
+	z-index 10
+
+.header-content
+	img 
+		margin 0 auto
+		width 140px
+		height 140px
+
+.header-button
+	outline none
+	text-decoration none
+	color #fff
+	border 2px solid #fff 
+	padding 10px 15px
+	border-radius: 10px
+	&:hover 
+		color #000
+		background #fff
+
+
+// Animation
+
+@keyframes fade-slide-down {
+	0% {
+		opacity 0
+		transform: translateY(-4rem)	
+	}
+	100% {
+		opacity 1
+		transform none	
+	}	
+}
+
+@import "_media.styl" // Всегда в конце
